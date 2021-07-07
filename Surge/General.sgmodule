@@ -1,3 +1,6 @@
+#!name=Advanced Settings & URL Redirect
+#!desc=高级设置及通用的 URL 重定向优化（如 Google 搜索及地图、AbeamTV 区域限制等）
+
 [URL Rewrite]
 # Redirect Google Search Service
 ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
@@ -73,4 +76,4 @@
 ^http:\/\/(www.)?aicoin\.cn\/$ https://www.aicoin.cn/?long_lives_aicoin=%22live%22 302
 
 [MITM]
-hostname = www.google.cn,api.abema.io,app.biliintl.com
+hostname = %APPEND% www.google.cn,api.abema.io,app.biliintl.com
