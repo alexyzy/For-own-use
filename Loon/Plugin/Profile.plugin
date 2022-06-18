@@ -1,27 +1,7 @@
 #!name= Profile
-#!desc= 自用，集成了一些Host Script 
 
-[Host]
-*.taobao.com = server:223.5.5.5
-*.tmall.com = server:223.5.5.5
-*.jd.com = server:119.28.28.28
-*.qq.com = server:119.28.28.28
-*.tencent.com = server:119.28.28.28
-*.alicdn.com = server:223.5.5.5
-*.aliyun.com = server:223.5.5.5
-*.weixin.com = server:119.28.28.28
-*.163.com = server:119.29.29.29
-*.126.com = server:119.29.29.29
-*.126.net = server:119.29.29.29
-*.127.net = server:119.29.29.29
-*.netease.com = server:119.29.29.29
-*.mi.com = server:119.29.29.29
-*.xiaomi.com = server:119.29.29.29
-*.bilibili.com = server:119.29.29.29
-*testflight.apple.com = server:8.8.4.4
-mtalk.google.com = 108.177.125.188
-dl.google.com = server:119.29.29.29
-dl.l.google.com = server:119.29.29.29
+[General]
+skip-proxy = iosapps.itunes.apple.com
 
 [URL Rewrite]
 # 知乎（部分替换为手机百度 Quark 的 User-Agent）
@@ -42,14 +22,11 @@ http-request ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22vide
 http-response ^https?://ios\.prod\.ftl\.netflix\.com/iosui/user/.+path=%5B%22videos%22%2C%\d+%22%2C%22summary%22%5D requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating.js, requires-body=true, timeout=10, tag=奈菲评分
 http-response ^https?://ios\.prod\.ftl\.netflix\.com/iosui/warmer/.+type=show-ath script-path=https://raw.githubusercontent.com/yichahucha/surge/master/nf_rating_season.js, requires-body=true, timeout=10, tag=奈菲评分
 
-# 解除微信链接限制
-http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js, requires-body=true, timeout=10, tag=解除微信链接限制
-
 # > vsco
-http-response ^https:\/\/api\.revenuecat\.com\/v\d\/subscribers\/\d+$ script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/vsco.js, requires-body=true, tag=VSCO
+http-response ^https?:\/\/api\.revenuecat\.com\/v\d\/subscribers\/ script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/vsco.js, requires-body=true, tag=VSCO
 
 # TF 下载
-http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ requires-body=1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js, tag=TF区域限制解除
+http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ requires-body=1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js, tag=TF区域限制
 
 [MITM]
-hostname = api.m.jd.com,mp.weixin.qq.com, ios.prod.ftl.netflix.com, weixin110.qq.com, api.revenuecat.com,testflight.apple.com, mb3admin.com, *.baidu.com, www.zhihu.com,
+hostname = api.m.jd.com, ios.prod.ftl.netflix.com, weixin110.qq.com, api.revenuecat.com,testflight.apple.com, *.baidu.com, www.zhihu.com,
