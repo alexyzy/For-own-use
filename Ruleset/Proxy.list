@@ -1,13 +1,8 @@
-# NasTool
-DOMAIN-SUFFIX,themoviedb.org
-DOMAIN-SUFFIX,tmdb.org
-
-# Emby
-DOMAIN-SUFFIX,trakt.tv
-
-# 蜜柑
-DOMAIN-SUFFIX,mikanani.me
+# My
+DOMAIN-SUFFIX,ipwho.is
 DOMAIN-SUFFIX,dmhy.org
-
-# jsdelivr
-DOMAIN-SUFFIX,jsdelivr.net
+DOMAIN-SUFFIX,mikanani.me
+DOMAIN-SUFFIX,trakt.tv
+DOMAIN-SUFFIX,tmdb.org
+DOMAIN-SUFFIX,themoviedb.org
+DOMAIN-SUFFIX,thetvdb.com
